@@ -1,0 +1,44 @@
+/* VIVALDI TRAPEZOID TABS --- Warning: doesn't work on the second row of the tab bar (if you have it)
+
+    Based on "Chrome Trapezoid Tabs 2 Reloaded" - https://forum.vivaldi.net/topic/36887/chrome-style-tabs
+
+    Modded by DavidBevi - https://github.com/DavidBevi/vivaldi_trapezoid_tabs
+     - Removed some borders and some gradients that I don't like
+     - Removed some positioning adjustments that are now obsolete
+     - Added my own comments, marked with '►'
+*/
+
+/* ► TOP BAR */
+#tabs-container.top .tab::before, #tabs-container.bottom .tab::before {
+    /* create trapezoid tab   ► changed from 10 to 6 deg */
+    transform: perspective(30px) rotateX(6deg) translateY(-1.5px);
+    /* magic by @dinkydau */
+    content: '';
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100% !important;
+    height: 100% !important;
+    /* ► disabling this breaks coloring */
+    -webkit-mask-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 0%, #000 0%) !important;
+}
+
+/* ► BOTTOM BAR (broken): rotation has to be inverted, translateY doesn't work (memo in case I try to fix it) */
+#tabs-container.bottom .tab::before { transform: perspective(30px) rotateX(-6deg) translateY(0px); }
+
+/* respect tab transparency settings (universal tab placement) ► border-bottom was not included, dunno why */
+#browser.ui-transparent-tabs .tab:not(.active)::before { border: none; }
+
+/* ► hide the rectangular tab backgrounds */
+#tabs-container:not(.left):not(.right) .tab, .tab:not(.active) { background-color: rgba(0, 0, 0, 0) !important; }
+
+/* ► add the trapezoidal tab background to the active tab */
+.color-behind-tabs-on  .tab.active::before { background: var(--colorBg) !important; }
+.color-behind-tabs-off .tab.active::before { background: var(--colorAccentBg) !important; }
+
+/* ► hide 1px border between active tab and address bar */
+.color-behind-tabs-on  .tab.active::before { border-bottom: 1px solid var(--colorBg); }
+.color-behind-tabs-off .tab.active::before { border-bottom: 1px solid var(--colorAccentBg); }
+
+/* adjust new tab button */
+.newtab { transform: translate(6px, 1px); }
