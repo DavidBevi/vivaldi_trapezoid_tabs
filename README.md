@@ -2,7 +2,7 @@
 ![Demo](https://github.com/DavidBevi/vivaldi_trapezoid_tabs/blob/main/demo.gif?raw=true)
 
 ## Installation
-1. **Enable support for CSS mods**
+1. **Enable support for CSS mods** - *This must be done only once per Vivaldi installation*
    - Go to `vivaldi://experiments/` and Tick `Allow for using CSS modifications`
 
 2. **Download the CSS mod `slanted_tabs.css`**
