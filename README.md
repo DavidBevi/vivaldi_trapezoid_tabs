@@ -1,4 +1,4 @@
-# Trapezoid tabs mod for Vivaldi
+# Trapezoid tabs mod for Vivaldi (Compact UI)
 ![Demo](https://github.com/DavidBevi/vivaldi_trapezoid_tabs/blob/main/demo.gif?raw=true)
 
 ## Installation
